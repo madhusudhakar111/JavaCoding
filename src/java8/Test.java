@@ -58,6 +58,19 @@ public class Test {
         int result2 = s2.add(2,32);
         System.out.println("result2 ----> " +result2);
     }
+    
+       List<Integer> lst = List.of(10,15,8,49,25,98,98,32,15);
+        List<Integer> lst1 = lst.stream().distinct().toList();
+        System.out.println(lst1);
+
+        Set s = new HashSet();
+        List<Integer> lst2 =lst.stream().filter(a -> !s.add(a)).toList();
+        System.out.println(lst2);
+
+        List<String> names = List.of("APPLE", "BANANA", "APPLE", "CARROT", "BANANA", "STARBERRY", "Mango");
+
+        Map<String, Long> counts =  names.stream().collect(Collectors.groupingBy(name -> name, Collectors.counting()));
+        System.out.println(counts);
 
 
 
