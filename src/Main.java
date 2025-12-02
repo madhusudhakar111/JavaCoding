@@ -2,7 +2,7 @@
 public class Main {
     public static void main(String[] args) {
 
-
+// Tricky Java 8 coding questions.
         
 		
 		// 1 Flatten a Nested List  Ex Input: [[1,2], [3,4], [5]] : Output: [1,2,3,4,5]
