@@ -46,16 +46,16 @@ public class Tester {
 		
 		System.out.println(tree);
 		
-		
-		
-		
-		
-		
-		
+		//public record Emp(int id , String name, Department dept ) { }
+
+	  //	public record Department(int id, String deptName) {}
 
 	}
 
+
 }
+
+
 
 class Employee {
 
