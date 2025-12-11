@@ -1,15 +1,15 @@
+package com.nandi;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 
 public class Tester {
 	   //public record Emp(int id , String name, Department dept ) { }
 
-	  //	public record Department(int id, String deptName) {}
+	   //	public record Department(int id, String deptName) {}
 
 	public static void main(String[] args) {
 
@@ -20,8 +20,10 @@ public class Tester {
 		Employee e5 = new Employee(5, "sudhakar", new Dept(4, "electrical"));
 
 		List<Employee> lst = List.of(e1, e2, e3, e4, e5);
+		
+		
 
-		Map<String, List<Employee>> map = lst.stream().collect(Collectors.groupingBy(e -> e.getDept().getDeptName()));
+		//Map<String, List<Employee>> map = lst.stream().collect(Collectors.groupingBy(e -> e.getDept().getDeptName()));
 
 		//System.out.println(map);
 		
@@ -36,14 +38,16 @@ public class Tester {
 		 * System.out.println(e11.dept().deptName()); System.out.println(e11.name());
 		 * System.out.println(e11.dept().id());
 		 */
+		List<Employee> lst3 = new ArrayList<>();
+		
+		lst3.add(e1);
+		lst3.add(e1);
+		lst3.add(e1);
+		lst3.add(e1);
+		lst3.add(e1);
 		
 		
-		List<Emp> lst1 = List.of(e11, e12,e13, e14, e15);
-		
-		List<Emp> lst12 = lst1.stream().sorted(Comparator.comparing(Emp::name).thenComparingInt(Emp::id)).toList();
-		
-		//System.out.println(lst12);
-		
+		List<Employee> lst4 = lst3.stream().sorted(Comparator.comparing(Employee::getName).thenComparingInt(Employee::getId)).toList();
 		
 		Set<Emp> tree = new TreeSet<>(Comparator.comparing(Emp::name).thenComparingInt(Emp::id));
 		
@@ -53,7 +57,7 @@ public class Tester {
 		tree.add(e14);
 		tree.add(e15);
 		
-		System.out.println(tree);
+		System.out.println(lst4);
 		
 
 	}
