@@ -210,6 +210,37 @@ public class Main {
 		int arrthree[] = IntStream.concat(Arrays.stream(arr2), Arrays.stream(arrtwo)).toArray();
 		
 		System.out.println(Arrays.toString(arrthree));
+		
+		Map<String, String> map15 = Map.of("apple", "red",
+										"banana", "yellow");
+		Map<String, String> map16 = map15.entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toUpperCase(), e-> e.getValue()));
+	
+		System.out.println(map16);
+		
+		// Move all the negative elements to one side of the array	
+		
+		 int[] arr21 = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
+		 
+		 int negativearr[] = Arrays.stream(arr21).filter(e -> e < 0).toArray();
+		 int potitivearr[] = Arrays.stream(arr21).filter(e -> e >= 0).toArray();
+		 
+		 int[] arr22 = IntStream.concat(Arrays.stream(negativearr), Arrays.stream(potitivearr)).toArray();
+		 
+		 System.out.println(Arrays.toString(arr22));
+		 
+		 
+		 
+			// Arrange 0's and 1's 
+			
+			int[] arr33 = {1, 0, 1, 0, 1, 0, 0, 0};
+			
+			int zrr[] = Arrays.stream(arr33).filter(e -> e ==0).toArray();
+			int orr[] = Arrays.stream(arr33).filter(e -> e ==1).toArray();
+			
+			int trrp[] =IntStream.concat(Arrays.stream(zrr), Arrays.stream(orr)).toArray();
+			
+			System.out.println(Arrays.toString(trrp));
+			
 	}
 		
 	
