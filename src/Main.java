@@ -178,13 +178,39 @@ public class Main {
 		
 		map21.forEach((k,v) -> System.out.print( k + ""+ v));
 		
-			// Arrange 0's and 1's 
+		// Arrange 0's and 1's 
 		
 		int[] arr = {1, 0, 1, 0, 1, 0, 0, 0};
-		Long zeroCount  = Arrays.stream(arr).filter(e -> e==0).count();
+		Long zeroCount = Arrays.stream(arr).filter(e -> e==0).count();
+		Long oneCount = Arrays.stream(arr).filter(e -> e==1).count(); 
 		
-		int[] arr5 = IntStream.concat(IntStream.generate(() -> 0 ).limit(zeroCount), IntStream.generate(() -> 1 ).limit(arr.length-zeroCount)).toArray();
-		System.out.println(Arrays.toString(arr5));
+		
+		int[] zeroArr =IntStream.generate(()->0).limit(zeroCount).toArray();
+		
+		int[] onesArr =IntStream.generate(()->1).limit(oneCount).toArray();
+		
+		
+		int[] zerosOnesArr = IntStream.concat(Arrays.stream(zeroArr), Arrays.stream(onesArr)).toArray();
+		
+		System.out.println(Arrays.toString(zerosOnesArr));
+		
+		// Arrange 0's and 1's and 2's
+        int[] arr1 = {1, 0, 1, 2, 1, 0, 0, 0, 2, 2, 2};
+        
+        Long zeroCount1 = Arrays.stream(arr).filter(e -> e==0).count();
+		Long oneCount1 = Arrays.stream(arr).filter(e -> e==1).count();
+		Long twoCount1 = Arrays.stream(arr).filter(e -> e==1).count();
+		
+		int arrz[] = IntStream.generate(()-> 0).limit(zeroCount1).toArray();
+		int arrone[] =  IntStream.generate(()-> 1).limit(oneCount1).toArray();
+		int arrtwo[] =  IntStream.generate(()-> 2).limit(twoCount1).toArray();
+		
+		int[] arr2 = IntStream.concat(Arrays.stream(arrz), Arrays.stream(arrone)).toArray();
+		
+		int arrthree[] = IntStream.concat(Arrays.stream(arr2), Arrays.stream(arrtwo)).toArray();
+		
+		System.out.println(Arrays.toString(arrthree));
+	}
 		
 	
     }
