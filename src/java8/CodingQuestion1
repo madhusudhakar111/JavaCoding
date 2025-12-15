@@ -1,0 +1,31 @@
+    public static void main(String[] args) {
+        // 1. find the count of employees in each department, print employee count for each department
+        // 2. find the youngest employee in each department, print employee's name and age for each department
+        class Employee {
+            final String name;
+            final int age;
+            final double salary;
+            final String department;
+ 
+            public Employee(String name, int age, double salary, String department) {
+                this.name = name;
+                this.age = age;
+                this.salary = salary;n{Finance=[Employee [name=Eve, age=40, salary=90000.0, department=Finance, getName()=Eve, getAge()=40, getSalary()=90000.0, getDepartment()=Finance, getClass()=class org.student.Employee, hashCode()=521645586, toString()=org.student.Employee@1f17ae12]], HR=[Employee [name=Alice, age=30, salary=70000.0, department=HR, getName()=Alice, getAge()=30, getSalary()=70000.0, getDepartment()=HR, getClass()=class org.student.Employee, hashCode()=2040495657, toString()=org.student.Employee@799f7e29], Employee [name=David, age=28, salary=60000.0, department=HR, getName()=David, getAge()=28, getSalary()=60000.0, getDepartment()=HR, getClass()=class org.student.Employee, hashCode()=1267032364, toString()=org.student.Employee@4b85612c]], IT=[Employee [name=Bob, age=25, salary=50000.0, department=IT, getName()=Bob, getAge()=25, getSalary()=50000.0, getDepartment()=IT, getClass()=class org.student.Employee, hashCode()=661672156, toString()=org.student.Employee@277050dc], Employee [name=Charlie, age=35, salary=80000.0, department=IT, getName()=Charlie, getAge()=35, getSalary()=80000.0, getDepartment()=IT, getClass()=class org.student.Employee, hashCode()=96639997, toString()=org.student.Employee@5c29bfd]]}
+
+                this.department = department;
+            }
+        }
+ 
+        List<Employee> employees = Arrays.asList(
+                new Employee("Alice", 30, 70000, "HR"),
+                new Employee("Bob", 25, 50000, "IT"),
+                new Employee("Charlie", 35, 80000, "IT"),
+                new Employee("David", 28, 60000, "HR"),
+                new Employee("Eve", 40, 90000, "Finance")
+        );
+		
+		
+		employees.stream().
+		
+    }
+ 
