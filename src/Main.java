@@ -178,7 +178,13 @@ public class Main {
 		
 		map21.forEach((k,v) -> System.out.print( k + ""+ v));
 		
+			// Arrange 0's and 1's 
 		
+		int[] arr = {1, 0, 1, 0, 1, 0, 0, 0};
+		Long zeroCount  = Arrays.stream(arr).filter(e -> e==0).count();
+		
+		int[] arr5 = IntStream.concat(IntStream.generate(() -> 0 ).limit(zeroCount), IntStream.generate(() -> 1 ).limit(arr.length-zeroCount)).toArray();
+		System.out.println(Arrays.toString(arr5));
 		
 	
     }
