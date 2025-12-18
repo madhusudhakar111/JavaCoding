@@ -1,0 +1,15 @@
+// Find the Largest & Smallest element in an array
+		
+		int[] arr = {4, 2, 9, 1, 7};
+
+		int min = Integer.MAX_VALUE;
+		int max = Integer.MIN_VALUE;
+		
+		for(int number:arr) {
+			
+			max = Math.max(max, number);
+			min = Math.min(min, number);
+		}
+		
+		System.out.println(max); // 9
+		System.out.println(min);  //1
