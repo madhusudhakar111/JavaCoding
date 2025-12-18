@@ -1,5 +1,5 @@
 
-public class Main {
+public class Java8Coding {
     public static void main(String[] args) {
 
 // Tricky Java 8 coding questions.
