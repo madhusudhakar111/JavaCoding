@@ -51,3 +51,6 @@ public class OddEvenThreadDemo {
     }
 }
 
+// 2. Can we call wait() without synchronized?
+
+❌ No — IllegalMonitorStateException
