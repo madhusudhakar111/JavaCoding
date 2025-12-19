@@ -1,31 +1,31 @@
 // Find the Largest & Smallest element in an array
 		
-		int[] arr = { 4, 2, 9, 1, 7 };
+			int[] arr = { 4, 2, 9, 1, 7 };
 
-		int max = Integer.MIN_VALUE;
-		int secondMax = Integer.MIN_VALUE;
+		int max1 = Integer.MIN_VALUE;
+		int max2 = Integer.MIN_VALUE;
 
-		int min = Integer.MAX_VALUE;
-		int secondMin = Integer.MAX_VALUE;
+		int min1 = Integer.MAX_VALUE;
+		int min2 = Integer.MAX_VALUE;
 
-		for (int number : arr) {
+		for (int curNumber : arr) {
 
-			if (number > max) {
-				secondMax = max; // old max becomes a second max
-				max = number;
-			} else if (number > secondMax) {
-				secondMax = number;
+			if (curNumber > max1) {
+				max2 = max1;  // old max becomes second max
+				max1 = curNumber;
+			} else if (curNumber > max2) {
+				max2 = curNumber;
 			}
 
-			if (number < min) {
-				secondMin = min; // old min becomes a second min
-				min = number;
-			} else if (number < secondMin) {
-				secondMin = number;
+			if (curNumber < min1) {
+				min2 = min1;  // old min becomes second min
+				min1 = curNumber;
+			} else if (curNumber < min2) {
+				min2 = curNumber;
 			}
-
 		}
-		System.out.println(max);   // 9
-		System.out.println(secondMax);   // 7
-		System.out.println(min);  // 1
-		System.out.println(secondMin); // 2
+
+		System.out.println(" Smallest Number  >>" + min1);   // 1
+		System.out.println(" Second Smallest Number  >>" + min2); //2
+		System.out.println(" Second Largest Number  >>" + max2); //7
+		System.out.println(" Largest Number >>" + max1);   //9
