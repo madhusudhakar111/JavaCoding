@@ -164,3 +164,23 @@
 		
 		Map<Integer, Long> m1 = Arrays.stream(arr).boxed().collect(Collectors.groupingBy(e -> e, LinkedHashMap::new, Collectors.counting()));
 		System.out.println(m1);
+//9. Intersection of Two Arrays Input: [1,2,2,3] & [2,2] Output: [2]
+
+		int arr1[] = { 1, 2, 2, 3 };
+		int arr2[] = { 2, 2 };
+
+		Set<Integer> s1 = new HashSet<>();
+		Set<Integer> s2 = new HashSet<>();
+
+		for (int n : arr1) {
+			s1.add(n);
+		}
+
+		for (int n : arr2) {
+			if (s1.contains(n)) {
+				s2.add(n);
+			}
+		}
+
+		System.out.println(s2);
+
