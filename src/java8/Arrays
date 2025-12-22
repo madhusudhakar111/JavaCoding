@@ -127,3 +127,16 @@
 		System.out.println(max);
 
 		System.out.println(leftIndex + "," + rightIndex);
+//6. Pair with Given Sum [2,7,11,15], sum=9
+		int arr[] = {2, 7, 11, 15};
+		Set<Integer> set = new HashSet<>();
+		int sum  = 9;
+		
+		for(int x:arr) {
+			if(set.contains(sum-x)) {
+				System.out.print("Found");
+				break;
+			} else {
+				set.add(x);
+			}
+		}
