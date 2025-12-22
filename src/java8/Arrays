@@ -200,3 +200,22 @@
 		}
 		
 		System.out.println(lst.reversed());
+ // 11. Longest Consecutive Sequence Input: [100,4,200,1,3,2] Output: 4
+
+		int arr[] = { 100, 4, 200, 1, 3, 2 };
+		Set<Integer> set = new HashSet<>();
+		for (int n : arr) {
+			set.add(n);
+		}
+		int longestConsequence = 1;
+		for (int number : set) {
+			// Better to check previous value should not available in set  if(!set.contains(number-1)) { }
+			int currentSecurence = 1;
+
+			while (set.contains(number + 1)) {
+				number++;
+				currentSecurence++;
+			}
+			longestConsequence = Math.max(currentSecurence, longestConsequence);
+		}
+		System.out.println(longestConsequence); // 4 i.e 1,2,3,4
