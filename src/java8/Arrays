@@ -184,3 +184,19 @@
 
 		System.out.println(s2);
 
+	//10. Find All Leaders Input: [16,17,4,3,5,2] Output: 17 5 2
+
+		int arr[] = { 16, 17, 4, 3, 5, 2 };
+		List<Integer> lst = new ArrayList<>();
+		lst.add(arr[arr.length - 1]);
+
+		int max = arr[arr.length - 1];
+
+		for (int i = arr.length - 2; i >= 0; i--) {
+			if (arr[i] > max) {
+				max = arr[i];
+				lst.add(max);
+			}
+		}
+		
+		System.out.println(lst.reversed());
