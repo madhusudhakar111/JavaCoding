@@ -237,3 +237,28 @@
 		}
 		
 		System.out.println(q.peek());
+
+//13. Sort 0s, 1s, 2s (Dutch Flag) Input: [2,0,2,1,1,0] Output: [0,0,1,1,2,2]
+
+		int arr[] = { 2, 0, 2, 1, 1, 0 };
+
+		int left = 0;
+		int cur = 0;
+		int right = arr.length - 1;
+
+		while (cur < right) {
+			if (arr[cur] == 0) {
+				arr[left] = arr[cur];
+				left++;
+				cur++;
+			} else if (arr[cur] == 1) {
+				cur++;
+			} else if (arr[cur] == 2) {
+				int temp = arr[right];
+				arr[right] = arr[cur];
+				arr[cur] = temp;
+				right--;
+			}
+		}
+
+		System.out.println(Arrays.toString(arr));
