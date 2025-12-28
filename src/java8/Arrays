@@ -418,3 +418,67 @@
 			}
 		}
 		System.out.println(count);
+
+// 20. Merge sort Algorithm
+
+public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int mergedArray[]) {
+
+		int i = 0;
+		int j = 0;
+		int k = 0;
+
+		while (i < leftArray.length && j < rightArray.length) {
+
+			if (leftArray[i] < rightArray[j]) {
+				mergedArray[k] = leftArray[i];
+				i++;
+				k++;
+			} else {
+				mergedArray[k] = rightArray[j];
+				j++;
+				k++;
+			}
+
+		}
+
+		while (i < leftArray.length) {
+			mergedArray[k] = leftArray[i];
+			i++;
+			k++;
+		}
+
+		while (j < rightArray.length) {
+			mergedArray[k] = rightArray[j];
+			j++;
+			k++;
+
+		}
+
+		return mergedArray;
+
+	}
+
+	public static void divide(int arr[]) {
+
+		if (arr.length < 2) {
+			return;
+		}
+
+		int mid = arr.length / 2;
+		int leftArray[] = Arrays.copyOfRange(arr, 0, mid);
+		int rightArray[] = Arrays.copyOfRange(arr, mid, arr.length);
+
+		divide(leftArray);
+		divide(rightArray);
+
+		mergeTwoSortedArray(leftArray, rightArray, arr);
+
+	}
+
+	public static void main(String[] args) {
+
+		int arr[] = { 4, 8, 12, 11, 13, 5, 6, 7 };
+		divide(arr);
+		System.out.println(Arrays.toString(arr)); //  [4, 5, 6, 7, 8, 11, 12, 13]
+
+	}
