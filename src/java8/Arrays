@@ -295,3 +295,19 @@
 		}
 		
 		System.out.println(Arrays.toString(result)); // [6, 9, -1, 8, -1, -1, -1, -1, -1, -1]
+
+
+// Best Time to Buy and Sell Stock – ONE Transaction Input: [7, 1, 5, 3, 6, 4] Output: 5
+		//  Explanation: Buy at 1, Sell at 6
+		
+		int arr[] = { 7, 1, 5, 3, 6, 4 };
+
+		int minPrice = Integer.MAX_VALUE;
+		int maxProfit = 0;
+
+		for (int n : arr) {
+			minPrice = Math.min(minPrice, n);
+			maxProfit = Math.max(maxProfit, n - minPrice);
+		}
+
+		System.out.println(maxProfit);  // 5
