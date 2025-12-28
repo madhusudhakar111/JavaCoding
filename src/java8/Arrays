@@ -144,12 +144,12 @@
 		}
 
 //7. Maximum Subarray Sum (Kadane) Input: [-2,1,-3,4,-1,2,1] Output: 6
-
-		int arr[] = { -2, 1, -3, 4, -1, 2, 1 };
-
+		int arr[] = {-2,1,-3,4,-1,2,1};
 		int maxSubArraySum = Integer.MIN_VALUE;
-		for (int currentNumber : arr) {
-			maxSubArraySum = Math.max(currentNumber, currentNumber + maxSubArraySum);
+		int currentSum = 0;
+		for(int n : arr) {
+			currentSum = Math.max(n, currentSum+n);
+			maxSubArraySum = Math.max(maxSubArraySum, currentSum);
 		}
 		System.out.println(maxSubArraySum); // 6
 
