@@ -297,7 +297,7 @@
 		System.out.println(Arrays.toString(result)); // [6, 9, -1, 8, -1, -1, -1, -1, -1, -1]
 
 
-// Best Time to Buy and Sell Stock – ONE Transaction Input: [7, 1, 5, 3, 6, 4] Output: 5
+//15. Best Time to Buy and Sell Stock – ONE Transaction Input: [7, 1, 5, 3, 6, 4] Output: 5
 		//  Explanation: Buy at 1, Sell at 6
 		
 		int arr[] = { 7, 1, 5, 3, 6, 4 };
@@ -311,3 +311,37 @@
 		}
 
 		System.out.println(maxProfit);  // 5
+
+//16. Best Time to Buy and Sell Stock – At Most 2 Transactions Input: [7, 1, 5, 3, 6, 4] Output: 5
+		
+		int arr[] = { 7, 1, 5, 3, 6, 4 };
+		int leftarr[] = new int[arr.length];
+		int rightarr[] = new int[arr.length];
+		
+		int minPrice = Integer.MAX_VALUE;
+		int maxPrice = Integer.MIN_VALUE;
+		
+		int leftMaxProfit = 0;
+		int rightMaxProfit = 0;
+		
+		int maxProfit = 0;
+		
+		for (int i=0; i<=arr.length-1; i++) {
+			int currentPrice = arr[i];
+			minPrice = Math.min(minPrice, currentPrice);
+			leftMaxProfit =  Math.max(leftMaxProfit, currentPrice-minPrice);
+			leftarr[i] = leftMaxProfit;
+		}
+		
+		for (int i=arr.length-1; i>=0; i--) {
+			int currentPrice = arr[i];
+			maxPrice = Math.max(maxPrice, currentPrice);
+			rightMaxProfit=  Math.max(rightMaxProfit, maxPrice-currentPrice);
+			rightarr[i] = rightMaxProfit;
+		}
+		
+		for(int i=0; i<=arr.length-1; i++) {
+			maxProfit = Math.max(maxProfit, leftarr[i]+rightarr[i]);
+		}
+		
+		System.out.println(maxProfit);  // 7
