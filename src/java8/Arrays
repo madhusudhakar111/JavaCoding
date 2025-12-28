@@ -1,4 +1,4 @@
-// 1 Find the Largest & Smallest element in an array
+// 1 Find the Largest & Smallest element in an array 
 		
 		int[] arr = { 4, 2, 9, 1, 7 };
 
@@ -360,7 +360,7 @@
 		}
 		System.out.println(count);
 
-// 18. Merge two sorted array into single sorted array
+// 18. Merge two sorted array into single sorted array o/p : [1, 2, 3, 4, 5, 6, 7, 8]
 
 		int arr1[] = { 1, 3, 5, 7 };
 		int arr2[] = { 2, 4, 6, 8 };
