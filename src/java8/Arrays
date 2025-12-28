@@ -242,22 +242,29 @@
 		int arr[] = { 2, 0, 2, 1, 1, 0 };
 
 		int left = 0;
-		int cur = 0;
+		int middle = 0;
 		int right = arr.length - 1;
 
-		while (cur < right) {
-			if (arr[cur] == 0) {
-				arr[left] = arr[cur];
+		while (middle <= right) {
+
+			if (arr[middle] == 0) {
+
+				int temp = arr[left];
+				arr[left] = arr[middle];
+				arr[middle] = temp;
+
 				left++;
-				cur++;
-			} else if (arr[cur] == 1) {
-				cur++;
-			} else if (arr[cur] == 2) {
+				middle++;
+
+			} else if (arr[middle] == 1) {
+				middle++;
+			} else if (arr[middle] == 2) {
 				int temp = arr[right];
-				arr[right] = arr[cur];
-				arr[cur] = temp;
+				arr[right] = arr[middle];
+				arr[middle] = temp;
 				right--;
 			}
+
 		}
 
 		System.out.println(Arrays.toString(arr));
