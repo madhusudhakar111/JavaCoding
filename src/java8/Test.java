@@ -88,7 +88,24 @@ public class Test {
     }
     
        
+//  Find Intersection of Two Arrays A = [1, 2, 2, 1] B = [2, 2] Output = [2]
+    
+		int arr1[] = { 1, 2, 2, 1 };
+		int arr2[] = { 2, 2 };
 
+		Set<Integer> set = new HashSet<>();
+		Set<Integer> resultSet = new HashSet<>();
+
+		for (int n : arr1) {
+			set.add(n);
+		}
+
+		for (int n : arr2) {
+			if (!set.add(n)) {
+				resultSet.add(n);
+			}
+		}
+		System.out.println(resultSet);
 
 
 
