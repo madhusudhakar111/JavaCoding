@@ -530,3 +530,69 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		}
 		
 		System.out.println(maxLength); // 4
+
+------------------------------------------------------------------------------------------------------------------------------
+//23 Longest Subarray With Sum = K O/p : 4
+		------------------------------------------------------------------------------------------------------------------------------
+		// First approach : sliding window . it works for non negative values.
+		// interviewer will raise the cross questions on this by giving negative number
+		// then follow the second approach
+		------------------------------------------------------------------------------------------------------------------------------
+		int arr[] = { 10, 5, 2, 7, 1, 9 };
+		int k = 15;
+		int left = 0;
+		int sum = 0;
+		int maxLength = 0;
+
+		for (int right = 0; right < arr.length; right++) {
+
+			sum = sum + arr[right];
+
+			if (sum > k) {
+				sum = sum - arr[left];
+				left++;
+			}
+
+			if (sum == k) {
+				int current_length = right - left + 1;
+				maxLength = Math.max(maxLength, current_length);
+			}
+
+		}
+
+		System.out.println(maxLength); // 4
+
+		
+		
+		------------------------------------------------------------------------------------------------------------------------------
+		// Second Approach : Prefix Sum + HashMap approach
+		------------------------------------------------------------------------------------------------------------------------------
+		int arr[] = { 10, 5, 2, 7, 1, 9 }; // arr = [3, 4, 7, 2, -3, 1, 4, 2]
+		int k = 15;
+
+		int prefixSum = 0;
+		int maxLength = 0;
+
+		Map<Integer, Integer> map = new HashMap<>();
+
+		for (int i = 0; i < arr.length - 1; i++) {
+
+			int cur = arr[i];
+
+			prefixSum += cur;
+
+			if (prefixSum == k) {
+				maxLength = i+1;
+			}
+
+			// sum = k --> sum-k = x find the x value in the map;   this is the main logic
+
+			if (map.containsKey(prefixSum - k)) {
+				maxLength = Math.max(maxLength, i - map.get(prefixSum - k));
+			}
+
+			map.put(prefixSum, i);
+
+		}
+
+		System.out.println(maxLength);  // 4
