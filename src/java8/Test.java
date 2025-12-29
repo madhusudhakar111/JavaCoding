@@ -122,3 +122,23 @@ public class Test {
 		System.out.println(set);
 
 }
+
+// Find A-B of Two Arrays A = [1, 2, 3, 4] B = [3, 4, 5, 6]  O/P  = [1, 2, 5, 6]
+
+		int arr1[] = { 1, 2, 3, 4 };
+		int arr2[] = { 3, 4, 5, 6 };
+
+		Set<Integer> set = new HashSet<>();
+
+		for (int n : arr1) {
+			set.add(n);
+		}
+		for (int n : arr2) {
+			if(set.contains(n)) {
+				set.remove(n);
+			} else {
+				set.add(n);
+			}
+		}
+		System.out.println(set);
+
