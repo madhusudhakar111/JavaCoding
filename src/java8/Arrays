@@ -633,7 +633,6 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 				left++;
 			}
 			
-			
 		}
 		
 		System.out.println(maxSum); // 9
