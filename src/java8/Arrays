@@ -502,3 +502,31 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 			j++;
 		}
 		System.out.println(flag);
+
+
+// 22. Longest Subarray With Sum = K  O/p : 4
+		
+		//  First approach : sliding window . it works if no negative values. and interview wont satisfy with this
+		int arr[] = {10, 5, 2, 7, 1, 9};
+		int k = 15;
+		int left =0;
+		int sum = 0;
+		int maxLength = 0;
+		
+		for (int right = 0; right < arr.length; right++) {
+
+			sum = sum + arr[right];
+
+			if (sum > k) {
+				sum = sum - arr[left];
+				left++;
+			}
+
+			if (sum == k) {
+				int current_length = right - left + 1;
+				maxLength = Math.max(maxLength, current_length);
+			}
+
+		}
+		
+		System.out.println(maxLength); // 4
