@@ -107,6 +107,18 @@ public class Test {
 		}
 		System.out.println(resultSet);
 
+// Find Union of Two Arrays A = [1, 2, 3, 4] B = [3, 4, 5, 6] Union = [1, 2, 3,4, 5, 6]
+		int arr1[] = { 1, 2, 3, 4 };
+		int arr2[] = { 3, 4, 5, 6 };
 
+		Set<Integer> set = new HashSet<>();
+
+		for (int n : arr1) {
+			set.add(n);
+		}
+		for (int n : arr2) {
+			set.add(n);
+		}
+		System.out.println(set);
 
 }
