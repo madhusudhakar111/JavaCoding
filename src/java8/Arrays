@@ -598,7 +598,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		System.out.println(maxLength);  // 4
 
 
-// Maximum sum subarray of size k  input arr = [2, 1, 5, 1, 3, 2] k = 3   o/p : 9 i.e [5,1,3]
+//24. Maximum sum subarray of size k  input arr = [2, 1, 5, 1, 3, 2] k = 3   o/p : 9 i.e [5,1,3]
 		
 		
 		
