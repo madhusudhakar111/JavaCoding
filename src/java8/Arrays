@@ -84,7 +84,35 @@
 		
 		System.out.println(flag);  
 
-// 5.  You are on a plane and you can watch two movies during this flight. You are given List<Integer> movieDurations which includes all the movie durations. You are also given duration of the flight which is in d minutes. Now, you need to pick two movies and the total duration of two movies is less than or equal to (d - 30min). Find the pair of movies with the longest total duration and return their indexes. If multiple found, return the pair with longest movie. Example1: Input: movieDurations = [90, 85, 75, 60, 120, 150, 125], d = 250 Output: [0, 6] Explaination: movieDuration[0] + movieDuration[6] = 90 + 125 = 215 is the maximum number within 220 (250 min - 30 min).
+// 5. check whether the sum of the two smallest elements in the array is less than K. input arr = [5, 1, 3, 7] K = 6 o/P : true i.e {1,3}
+
+		int arr[] = { 5, 1, 3, 7 };
+		int k = 6;
+
+		// First Approach : find smallest and secondsmallest and compare
+
+		int smallest = Integer.MAX_VALUE;
+		int secondSmallest = Integer.MAX_VALUE;
+
+		for (int n : arr) {
+
+			if (n < smallest) {
+				secondSmallest = smallest;
+				smallest = n;
+			} else if (n < secondSmallest) {
+				secondSmallest = n;
+			}
+
+		}
+
+		System.out.println(smallest + secondSmallest < k);
+
+		// Second approach sort and compare
+
+		Arrays.sort(arr);
+		System.out.println(arr[0] + arr[1] < k);  // true
+
+// 6.  You are on a plane and you can watch two movies during this flight. You are given List<Integer> movieDurations which includes all the movie durations. You are also given duration of the flight which is in d minutes. Now, you need to pick two movies and the total duration of two movies is less than or equal to (d - 30min). Find the pair of movies with the longest total duration and return their indexes. If multiple found, return the pair with longest movie. Example1: Input: movieDurations = [90, 85, 75, 60, 120, 150, 125], d = 250 Output: [0, 6] Explaination: movieDuration[0] + movieDuration[6] = 90 + 125 = 215 is the maximum number within 220 (250 min - 30 min).
 // Sum of the two smallest numbers is < K
 
 		int k = 250 - 30; // 220
@@ -130,7 +158,7 @@
 		System.out.println(max);
 
 		System.out.println(leftIndex + "," + rightIndex);
-//6. Pair with Given Sum [2,7,11,15], sum=9
+//7. Pair with Given Sum [2,7,11,15], sum=9
 		int arr[] = {2, 7, 11, 15};
 		Set<Integer> set = new HashSet<>();
 		int sum  = 9;
@@ -144,7 +172,7 @@
 			}
 		}
 
-//7. Maximum Subarray Sum (Kadane) Input: [-2,1,-3,4,-1,2,1] Output: 6
+//8. Maximum Subarray Sum (Kadane) Input: [-2,1,-3,4,-1,2,1] Output: 6
 		int arr[] = { -2, 1, -3, 4, -1, 2, 1 };
 		int maxSubArraySum = Integer.MIN_VALUE;
 		int maxPrefixSum = 0;
@@ -155,7 +183,7 @@
 		}
 
 		System.out.println(maxSubArraySum); // 6
-// 8. Count Frequency Input: [1,2,2,3,3,3] Output: {1=1,2=2,3=3}
+// 9. Count Frequency Input: [1,2,2,3,3,3] Output: {1=1,2=2,3=3}
 
 		int arr[] = { 1,2,2,3,3,3 };
 		Map<Integer, Integer> map = new LinkedHashMap<>();
@@ -168,7 +196,7 @@
 		
 		Map<Integer, Long> m1 = Arrays.stream(arr).boxed().collect(Collectors.groupingBy(e -> e, LinkedHashMap::new, Collectors.counting()));
 		System.out.println(m1);
-//9. Intersection of Two Arrays Input: [1,2,2,3] & [2,2] Output: [2]
+// 10. Intersection of Two Arrays Input: [1,2,2,3] & [2,2] Output: [2]
 
 		int arr1[] = { 1, 2, 2, 3 };
 		int arr2[] = { 2, 2 };
@@ -188,7 +216,7 @@
 
 		System.out.println(s2);
 
-	//10. Find All Leaders Input: [16,17,4,3,5,2] Output: 17 5 2 // similar logic to next greater number
+	//11. Find All Leaders Input: [16,17,4,3,5,2] Output: 17 5 2 // similar logic to next greater number
 
 	    int arr[] = { 16, 17, 4, 3, 5, 2 };
 		Stack<Integer> stack = new Stack<>();
@@ -201,7 +229,7 @@
 		}
 		System.out.println(stack.reversed());
 
- // 11. Longest Consecutive Sequence Input: [100,4,200,1,3,2] Output: 4 i.e 1,2,3,4
+ // 12. Longest Consecutive Sequence Input: [100,4,200,1,3,2] Output: 4 i.e 1,2,3,4
 
 		int arr[] = { 100, 4, 200, 1, 3, 2 };
 		Set<Integer> set = new HashSet<>();
@@ -222,7 +250,7 @@
 		System.out.println(longestConsequence); // 4 i.e 1,2,3,4
 
 
-//12. Find Kth Largest Input: [3,2,1,5,6,4], k=2 Output: 5
+//13. Find Kth Largest Input: [3,2,1,5,6,4], k=2 Output: 5
 		int k =2;
 		int arr[] = {3,2,1,5,6,4};   //[ 1, 3, 2, 5, 6, 4]
 		
@@ -239,7 +267,7 @@
 		
 		System.out.println(q.peek());
 
-//13. Sort 0s, 1s, 2s (Dutch Flag) Input: [2,0,2,1,1,0] Output: [0,0,1,1,2,2]
+//14. Sort 0s, 1s, 2s (Dutch Flag) Input: [2,0,2,1,1,0] Output: [0,0,1,1,2,2]
 		int arr[] = { 2, 0, 2, 1, 1, 0 };
 
 		int left = 0;
@@ -270,7 +298,7 @@
 
 		System.out.println(Arrays.toString(arr));
 		
-//14. Next greater element 
+//15. Next greater element 
 
 		int arr[] = {4, 6, 9, 3, 8, 7, 5, 4, 3, 2};
 		
@@ -298,7 +326,7 @@
 		System.out.println(Arrays.toString(result)); // [6, 9, -1, 8, -1, -1, -1, -1, -1, -1]
 
 
-//15. Best Time to Buy and Sell Stock – ONE Transaction Input: [7, 1, 5, 3, 6, 4] Output: 5
+//16. Best Time to Buy and Sell Stock – ONE Transaction Input: [7, 1, 5, 3, 6, 4] Output: 5
 		//  Explanation: Buy at 1, Sell at 6
 		
 		int arr[] = { 7, 1, 5, 3, 6, 4 };
@@ -313,7 +341,7 @@
 
 		System.out.println(maxProfit);  // 5
 
-//16. Best Time to Buy and Sell Stock – At Most 2 Transactions Input: [7, 1, 5, 3, 6, 4] Output: 5
+//17. Best Time to Buy and Sell Stock – At Most 2 Transactions Input: [7, 1, 5, 3, 6, 4] Output: 5
 		
 		int arr[] = { 7, 1, 5, 3, 6, 4 };
 		int leftarr[] = new int[arr.length];
@@ -347,7 +375,7 @@
 		
 		System.out.println(maxProfit);  // 7
 
-//17. Count inversion Brutforce oproach
+//18. Count inversion Brutforce oproach
 		
 		int arr[] = {8, 4, 2, 1, 3, 7, 5, 6};
 		
@@ -361,7 +389,7 @@
 		}
 		System.out.println(count);
 
-// 18. Merge two sorted array into single sorted array o/p : [1, 2, 3, 4, 5, 6, 7, 8]
+// 19. Merge two sorted array into single sorted array o/p : [1, 2, 3, 4, 5, 6, 7, 8]
 
 		int arr1[] = { 1, 3, 5, 7 };
 		int arr2[] = { 2, 4, 6, 8 };
@@ -400,7 +428,7 @@
 
 		System.out.println(Arrays.toString(mergedArray));
 
-	// 19. Count Inversion between two sorted array's {1 ,3 ,5, 7} {2 ,4 ,6, 8} o/p : 6
+	// 20. Count Inversion between two sorted array's {1 ,3 ,5, 7} {2 ,4 ,6, 8} o/p : 6
 
 		int arr1[] = { 1, 3, 5, 7 };
 		int arr2[] = { 2, 4, 6, 8 };
@@ -420,7 +448,7 @@
 		}
 		System.out.println(count);
 
-// 20. Merge sort Algorithm
+// 21. Merge sort Algorithm
 
 public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int mergedArray[]) {
 
@@ -485,7 +513,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 	}
 
 
-// 21. Check if two arrays are equal
+// 22. Check if two arrays are equal
 		int[] a = { 1, 2, 3, 4 };
 		int[] b = { 1, 2, 3, 4 };
 
@@ -505,7 +533,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		System.out.println(flag);
 
 
-// 22. Longest Subarray With Sum = K  O/p : 4
+// 23. Longest Subarray With Sum = K  O/p : 4
 		
 		//  First approach : sliding window . it works if no negative values. and interview wont satisfy with this
 		int arr[] = {10, 5, 2, 7, 1, 9};
@@ -533,7 +561,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		System.out.println(maxLength); // 4
 
 ------------------------------------------------------------------------------------------------------------------------------
-//23 Longest Subarray With Sum = K O/p : 4
+//24 Longest Subarray With Sum = K O/p : 4
 		------------------------------------------------------------------------------------------------------------------------------
 		// First approach : sliding window . it works for non negative values.
 		// interviewer will raise the cross questions on this by giving negative number
@@ -599,7 +627,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		System.out.println(maxLength);  // 4
 
 
-//24. Maximum sum subarray of size k  input arr = [2, 1, 5, 1, 3, 2] k = 3   o/p : 9 i.e [5,1,3]
+//25. Maximum sum subarray of size k  input arr = [2, 1, 5, 1, 3, 2] k = 3   o/p : 9 i.e [5,1,3]
 		
 		
 		
@@ -639,7 +667,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		System.out.println(maxSum); // 9
 
 
-//25. Find the length of the smallest contiguous subarray whose sum is greater than or equal to k.	
+//26. Find the length of the smallest contiguous subarray whose sum is greater than or equal to k.	
 //  input : arr = [2, 3, 1, 2, 4, 3]  , k = 7   ,  o/p: 2   ,  i.e [4,3] sum = 7 
 
 		int arr[] = { 2, 3, 1, 2, 4, 3 };
@@ -665,7 +693,7 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 		System.out.println(minLength); // 2
 
 
-// 26. Longest subarray with sum = 0   find the length of the longest contiguous subarray whose sum is exactly 0.
+// 27. Longest subarray with sum = 0   find the length of the longest contiguous subarray whose sum is exactly 0.
 		//  input : {3, 4, -7, 1, 3, 3, 1, -4 };   o/p : 4 
 		
 		int arr[] = {3, 4, -7, 1, 3, 3, 1, -4 };  
