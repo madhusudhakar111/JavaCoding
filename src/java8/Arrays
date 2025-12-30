@@ -628,42 +628,25 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 
 //25. Maximum sum subarray of size k  input arr = [2, 1, 5, 1, 3, 2] k = 3   o/p : 9 i.e [5,1,3]
 		
-		
-		
 		int arr[] = {2, 1, 5, 1, 3, 2};
 		int k =3;
-		
-		
+		int prefixSum = 0;
 		int left = 0;
-		int maxSum =0;
+		int max = 0;
 		
-		int windowSum = 0;
-		
-		
-		for(int right = 0; right<=arr.length-1; right++) {
+		for (int right=0; right<arr.length-1; right++) {
 			
-			windowSum = windowSum+ arr[right];
+			prefixSum +=arr[right];
 			
-			/**	if(right <= k-1) {
-					maxSum = Math.max(maxSum, windowSum);
-				} else {
-					windowSum = windowSum- arr[left];
-					left++;
-					maxSum = Math.max(maxSum, windowSum);
-				} 
-			*/
-			
-			// re-write above if else condition
-			
-			if(right >= k-1) {
-				maxSum = Math.max(maxSum, windowSum);
-				windowSum = windowSum- arr[left];
+			if(right-left+1 == k) {
+				max = Math.max(max, prefixSum);
+				prefixSum = prefixSum - arr[left];
 				left++;
 			}
 			
 		}
 		
-		System.out.println(maxSum); // 9
+		System.out.println(max);  // 9
 
 
 //26. Find the length of the smallest contiguous subarray whose sum is greater than or equal to k.	
