@@ -11,7 +11,7 @@
 		for (int n : arr) {
 
 			if (n > largest) {
-				secondLargest = largest;
+				secondLargest = largest;   // Previous largest becomes second largest
 				largest = n;
 
 			} else if (n > secondLargest) {
@@ -19,7 +19,7 @@
 			}
 
 			if (n < smallest) {
-				secondSmallest = smallest;
+				secondSmallest = smallest;   // Previous smallest becomes second smallest
 				smallest = n;
 			} else if (n < secondSmallest) {
 				secondSmallest = n;
