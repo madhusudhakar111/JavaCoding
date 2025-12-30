@@ -1,0 +1,56 @@
+
+
+//Print Odd & Even Using Two Threads
+class NumberPrinter {
+
+    private int number = 1;
+    private final int MAX = 10;
+
+    public synchronized void printOdd() {
+        while (number <= MAX) {
+            while (number % 2 == 0) {
+                try {
+                    this.wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.println("Thread-1 (Odd): " + number);
+            number++;
+            notify();
+        }
+    }
+
+    public synchronized void printEven() {
+        while (number <= MAX) {
+            while (number % 2 != 0) {
+                try {
+                    this.wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.println("Thread-2 (Even): " + number);
+            number++;
+            notify();
+        }
+    }
+}
+
+public class OddEvenThreadDemo {
+
+    public static void main(String[] args) {
+
+    	NumberPrinter  printer = new NumberPrinter();
+
+        Thread t1 = new Thread(printer::printOdd, "Thread-1");
+        Thread t2 = new Thread(printer::printEven, "Thread-2");
+
+        t1.start();
+        t2.start();
+    }
+}
+
+// 2. Can we call wait() without synchronized?
+
+❌ No — IllegalMonitorStateExceptio
