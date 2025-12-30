@@ -692,8 +692,9 @@ public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int m
 			
 			if(map.containsKey(prefixSum)) {
 				maxLength = Math.max(maxLength, i-map.get(prefixSum));
+			} else {
+				map.put(prefixSum, i);
 			}
-			map.put(prefixSum, i);
 		}
 		
 		System.out.println(prefixSum);  // 4
