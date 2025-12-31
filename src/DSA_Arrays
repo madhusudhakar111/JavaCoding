@@ -447,69 +447,77 @@
 		}
 		System.out.println(count);
 
-// 21. Merge sort Algorithm
+// 21. Merge sort Algorithm and inversioncount
 
-public static int[] mergeTwoSortedArray(int[] leftArray, int[] rightArray, int mergedArray[]) {
-
+public class Tester {
+	
+	private static int inversionCount  = 0;
+	
+	public static void mergeSortArrays(int leftArr[], int rightArr[] , int mergeSortArray[]) {
+		
 		int i = 0;
 		int j = 0;
-		int k = 0;
+	    int k = 0;
+		
+	    while ( i< leftArr.length && j < rightArr.length) {
+	    	
+	    	if(leftArr[i] < rightArr[j]) {
+	    		mergeSortArray[k] = leftArr[i];
+	    		i++;
+	    		k++;
+	    	} else {
+	    		mergeSortArray[k] = rightArr[j];
+	    		j++;
+	    		k++;
+                inversionCount += leftArr.length - i;
 
-		while (i < leftArray.length && j < rightArray.length) {
-
-			if (leftArray[i] < rightArray[j]) {
-				mergedArray[k] = leftArray[i];
-				i++;
-				k++;
-			} else {
-				mergedArray[k] = rightArray[j];
-				j++;
-				k++;
-			}
-
-		}
-
-		while (i < leftArray.length) {
-			mergedArray[k] = leftArray[i];
-			i++;
-			k++;
-		}
-
-		while (j < rightArray.length) {
-			mergedArray[k] = rightArray[j];
-			j++;
-			k++;
-
-		}
-
-		return mergedArray;
-
+	    	}
+	    	
+	    }
+	    
+	    while(i< leftArr.length) {
+	    	mergeSortArray[k] = leftArr[i];
+    		i++;
+    		k++;
+	    }
+	    
+	    while (j < rightArr.length) {
+	    	mergeSortArray[k] = rightArr[j];
+    		j++;
+    		k++;
+	    }
+	    
 	}
-
+	
+	
 	public static void divide(int arr[]) {
-
-		if (arr.length < 2) {
+		
+		if(arr.length < 2) {
 			return;
 		}
-
-		int mid = arr.length / 2;
-		int leftArray[] = Arrays.copyOfRange(arr, 0, mid);
-		int rightArray[] = Arrays.copyOfRange(arr, mid, arr.length);
-
-		divide(leftArray);
-		divide(rightArray);
-
-		mergeTwoSortedArray(leftArray, rightArray, arr);
-
+		
+		int mid = arr.length/2;
+		
+		int leftArr[] = Arrays.copyOfRange(arr, 0, mid);
+		int rightArr[] = Arrays.copyOfRange(arr, mid, arr.length);
+		
+		divide(leftArr);
+		divide(rightArr);
+		
+		mergeSortArrays(leftArr, rightArr, arr);
+		
 	}
+	
 
 	public static void main(String[] args) {
-
 		int arr[] = { 4, 8, 12, 11, 13, 5, 6, 7 };
+		System.out.println(Arrays.toString(arr));
 		divide(arr);
-		System.out.println(Arrays.toString(arr)); //  [4, 5, 6, 7, 8, 11, 12, 13]
+		System.out.println(Arrays.toString(arr));
+		
+		System.out.println(inversionCount);
 
-	}
+}
 
 
 // 22. Check if two arrays are equal
