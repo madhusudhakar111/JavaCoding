@@ -771,3 +771,27 @@ public class Tester {
 		}
 
 		lst.stream().forEach(e -> System.out.print(Arrays.toString(e)));
+
+// 31. Valid Parentheses Valid Parentheses "{[]}" 
+
+		String str = "{[]}";
+
+		char[] charArr = str.toCharArray();
+
+		Stack<Character> stack = new Stack<>();
+
+		for (char c : charArr) {
+
+			if (c == '{' || c == '[' || c == '(') {
+				stack.add(c);
+			} else if (c == '}' && stack.peek() == '{') {
+				stack.pop();
+			} else if (c == ']' && stack.peek() == '[') {
+				stack.pop();
+			} else if (c == ')' && stack.peek() == '(') {
+				stack.pop();
+			}
+
+		}
+
+		System.out.println(stack.isEmpty() ? "valid" : "invalid");  // valid
