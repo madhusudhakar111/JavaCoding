@@ -706,3 +706,28 @@ public class Tester {
 		}
 		
 		System.out.println(prefixSum);  // 4
+//28. Trapping Rain Water Input:  [4, 2, 0, 3, 2, 5] Output: 9
+		
+		
+		int arr[] = {4, 2, 0, 3, 2, 5};
+		int leftArr[] = new int[arr.length];
+		int rightArr[] = new int[arr.length];
+		int leftMax = 0;
+		int rightMax = 0;
+		
+		for(int i=0; i<=arr.length-1; i++) {
+			leftMax = Math.max(leftMax, arr[i]);
+			leftArr[i] = leftMax;
+		}
+		
+		for(int i=arr.length-1; i>=0; i--) {
+			rightMax = Math.max(rightMax, arr[i]);
+			rightArr[i] = rightMax;
+		}
+		
+		int water = 0;
+		for(int i=0; i<=arr.length-1; i++) {
+			water +=Math.min(leftArr[i], rightArr[i])-arr[i];
+		}
+		
+		System.out.println(water);
