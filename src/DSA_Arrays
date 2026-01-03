@@ -760,9 +760,7 @@ public class Tester {
 		List<int[]> lst = new ArrayList<>();
 
 		for (int i = 1; i <= arr.length - 1; i++) {
-
 			int next[] = arr[i];
-
 			if (cur[1] > next[0]) {
 				cur[1] = Math.max(cur[1], next[1]);
 				lst.add(cur);
@@ -770,7 +768,6 @@ public class Tester {
 				cur = next;
 				lst.add(cur);
 			}
-
 		}
 
 		lst.stream().forEach(e -> System.out.print(Arrays.toString(e))); 
