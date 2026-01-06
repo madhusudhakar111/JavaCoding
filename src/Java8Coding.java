@@ -275,6 +275,21 @@ public class Java8Coding {
 		  
 		  System.out.println(output);
 
+//24. Custom frequency sort of characters in a string Given a string, sort its character by frequency in descending order. 
+		//If two characters have same frequency, maintain their order of first appearance. Input: tree Output: eetr
+		
+		
+		String str = "tree";
+		
+		Map<Character, Long> map = str.chars().mapToObj(c -> (char)c).collect(Collectors.groupingBy(e -> e , LinkedHashMap::new, Collectors.counting()));
+		
+		System.out.println(map);
+		String s = map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).map(e -> String.valueOf(e.getKey()).repeat(e.getValue().intValue())).collect(Collectors.joining());
+		
+		System.out.println(s);
+		
+		
+		// idea  : "a".repeat(2) it means aa
 
     }
 }
