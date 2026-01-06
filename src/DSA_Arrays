@@ -852,3 +852,7 @@ public static boolean canFormPalindrome(String s) {
     return oddCount <= 1;
 }
 
+System.out.println(canFormPalindrome("carrace")); // true
+System.out.println(canFormPalindrome("aabb"));    // true
+System.out.println(canFormPalindrome("abc"));     // false
+
