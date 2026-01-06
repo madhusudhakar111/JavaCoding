@@ -242,7 +242,29 @@ public class Java8Coding {
 			System.out.println(Arrays.toString(trrp));
 			
 	}
-		
+	
+//22 Merge two Treemaps with custom logic
+		//1) if a key is present in both the maps then sum the value
+		//2) if a key is present in only one map then retain the value as it is 
+		//	TreeMap1: {1=10, 2=20, 3=30} TreeMap2: {2=15, 3=25, 4=40} Output: {1=10, 2=35, 3=55, 4=40}
+
+		Map<Integer, Integer> map1 = new TreeMap<>();
+
+		map1.put(1, 10);
+		map1.put(2, 20);
+		map1.put(3, 30);
+
+		Map<Integer, Integer> map2 = new TreeMap<>();
+
+		map2.put(2, 15);
+		map2.put(3, 25);
+		map2.put(4, 40);
+
+		TreeMap<Integer, Integer> result = new TreeMap<>(map1); // this is no need you can merged with map1 or map2
+
+		map2.forEach((k, v) -> result.merge(k, v, Integer::sum));
+
+		System.out.println(result);
 	
     }
 }
