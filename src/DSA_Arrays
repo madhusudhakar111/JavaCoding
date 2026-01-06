@@ -834,4 +834,21 @@ public class Tester {
 
 		System.out.println(max); // 3
 
+//33. Given a string, check whether its characters can be rearranged to form a palindrome.
+public static boolean canFormPalindrome(String s) {
+    Map<Character, Integer> freqMap = new HashMap<>();
+
+    for (char c : s.toCharArray()) {
+        freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+    }
+
+    int oddCount = 0;
+    for (int count : freqMap.values()) {
+        if (count % 2 != 0) {
+            oddCount++;
+        }
+    }
+
+    return oddCount <= 1;
+}
 
