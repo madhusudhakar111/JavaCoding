@@ -795,3 +795,43 @@ public class Tester {
 		}
 
 		System.out.println(stack.isEmpty() ? "valid" : "invalid");  // valid
+/* 32. Given a string s and an integer k,
+		find the length of the longest substring that contains at most k distinct characters 
+		Input: String s = "eceba"; int k = 2; 
+		Explanation: The substrings with at most 2
+		distinct characters are: "ec" (distinct characters: e, c)
+		"ece" (distinct characters: e, c) "ec" (distinct characters: e, c)
+		"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters) 
+		The longest valid substring is "ece", which has a length of 3. */
+		
+		String s = "eceba";
+		int k = 2;
+
+		Map<Character, Integer> map = new HashMap<>();
+
+		char c[] = s.toCharArray();
+
+		int left = 0;
+
+		int max = 0;
+
+		for (int right = 0; right <= c.length - 1; right++) {
+
+			map.put(c[right], map.getOrDefault(c[right], 0) + 1);
+
+			while (map.size() > k) {
+				map.put(c[left], map.get(c[left]) - 1);
+
+				if (map.get(c[left]) == 0) {
+					map.remove(c[left]);
+				}
+
+				left++;
+			}
+
+			max = Math.max(max, right - left + 1);
+		}
+
+		System.out.println(max); // 3
+
+
