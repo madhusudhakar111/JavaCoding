@@ -265,6 +265,16 @@ public class Java8Coding {
 		map2.forEach((k, v) -> result.merge(k, v, Integer::sum));
 
 		System.out.println(result);
-	
+
+
+//23. input "Java is amazing"; output  "is Java amazing"
+		
+		  String input = "Java is amazing";
+		  
+		  String output = Arrays.stream(input.split(" ")).sorted(Comparator.comparingInt(String::length)).collect(Collectors.joining(" "));
+		  
+		  System.out.println(output);
+
+
     }
 }
