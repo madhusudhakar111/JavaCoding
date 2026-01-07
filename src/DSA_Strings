@@ -15,4 +15,23 @@
 		 
 		 System.out.println(Arrays.toString(charArr));
 
+// 2. Check if a string is a palindrome
+		
+		 String str = "madam";
+		 char charArr[] = str.toLowerCase().toCharArray();
+		 int left = 0;
+		 int right = charArr.length-1;
+		 boolean isPolindrome = true;
+		 
+		 while(left < right ) {
+			 
+			 if(charArr[right] != charArr[left]) {
+				 isPolindrome = false;
+			 }
+			 left++;
+			 right--;
+		 }
+		 
+		 System.out.println(isPolindrome);  // true
+
 
