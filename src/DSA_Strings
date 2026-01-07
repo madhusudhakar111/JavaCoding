@@ -58,25 +58,19 @@
 // 4. Check if a string can be rearranged to form a palindrome
 		
 		  String str = "carrace";
-		  
 		  char ch[] = str.toCharArray();
-		  
 		  Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
-		  
-		  
 		  for(char c: ch) {
 			  map.put(c, map.getOrDefault(c, 0)+1);
 		  }
 		  
-		  int oddCount = 0;
-		  
+		 int oddCount = 0;
 		 for(int v : map.values()) {
 			if(v % 2 != 0 ) {
 				oddCount++;
 			}
 		 }
-		
-		 
+
 		 if(oddCount <= 1) {
 			System.out.println("string can be rearranged to form a palindrome"); 
 		 } else {
