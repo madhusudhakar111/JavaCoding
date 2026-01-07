@@ -1,1 +1,18 @@
+// 1. Reverse String
+		
+		 String str = "Hello World";
+		 char charArr[] = str.toCharArray();
+		 int left = 0;
+		 int right = charArr.length-1;
+		 
+		 while(left < right ) {
+			 char temp = charArr[right];
+			 charArr[right] = charArr[left];
+			 charArr[left] = temp;
+			 left++;
+			 right--;
+		 }
+		 
+		 System.out.println(Arrays.toString(charArr));
+
 
