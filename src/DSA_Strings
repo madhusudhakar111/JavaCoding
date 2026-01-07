@@ -76,3 +76,25 @@
 		 } else {
 			 System.out.println("string can't be rearranged to form a palindrome"); 
 		 }
+
+// 5. Longest substring without repeating characters
+		
+        String str = "abcabcbb";
+        
+        char arr[] = str.toCharArray();
+        Set<Character> set = new HashSet<>();
+        
+        int left = 0;
+        int max = 0;
+        
+        for(int right = 0; right <= arr.length-1; right++) {
+        	
+        	if(set.contains(arr[right])) {
+        		set.remove(arr[left]);
+        		left++;
+        	}
+        	set.add(arr[right]);
+        	max = Math.max(max, right-left+1);
+        }
+        
+        System.out.println(max);
