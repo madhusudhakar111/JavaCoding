@@ -188,7 +188,7 @@
 		Map<Integer, Integer> map = new LinkedHashMap<>();
 		
 		for(int n:arr) {
-			map.put(n, map.getOrDefault(1, 0)+1);
+			map.put(n, map.getOrDefault(n, 0)+1);
 		}
 		
 		System.out.println(map);
