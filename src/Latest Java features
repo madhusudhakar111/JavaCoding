@@ -71,7 +71,6 @@ HTTP Client
  High‑Impact (Architecture / Scalability)
 
 Virtual Threads
-Structured Concurrency
 Sealed Classes
 
 
