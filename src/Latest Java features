@@ -22,7 +22,7 @@ Helpful NullPointerExceptions
 Records (preview)
 
 
-Java 15
+// Java 15 Text Blocks (multi‑line strings)
 
 
 String json = """
