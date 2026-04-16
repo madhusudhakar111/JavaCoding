@@ -1,110 +1,122 @@
-Java 10: 
+Latest Java features upto Java 21
 
-var (Local Variable Type Inference)
-
-var list = new ArrayList<String>();
-
-Java 11 (LTS)
-
-Standard HTTP Client
-New String methods
-
-isBlank()
-strip() 
-repeat()
+1. var
+2. HTTPClient
+3. new String method isBlank() strip() repeat()
+4. Switch Expression ( Multiple Case Labels and switch pattern matching )
+5. Text Block (Multi line strings)
+6. Records
+7. Pattern matching for instanceof
+8. Sealed classes
+9. Virtual Threads
+10. Sequenced Collections
 
 
+1.  var (Local Variable Type Inference)
 
-Java 14
+var name = "Sudhakar";          // inferred as String
+var count = 10;                // inferred as int
+var list = new ArrayList<String>(); // inferred as ArrayList<String>
 
-Switch Expressions (final)
-Records
+2. Standard HTTP Client (Java 11)
 
-// Java 15 Text Blocks (multi‑line strings)
+HttpClient client = HttpClient.newHttpClient();
 
-String json = """
-{
-  "id": 1,
-  "name": "Java"
-}
-""";
+HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create("https://api.example.com/users"))
+        .GET()
+        .build();
 
+HttpResponse<String> response =
+        client.send(request, HttpResponse.BodyHandlers.ofString());
 
-Java 16
-
-✅ Records (final)
-✅ Pattern matching for instanceof
-
-if (obj instanceof String s) {
-    System.out.println(s.length());
-}
-
-Java 17 (LTS)
-
-✅ Sealed Classes (final)
-✅ Enhanced Pattern Matching
+System.out.println(response.body());
 
 
-Java 21 (LTS) ⭐ MOST IMPORTANT
-✅ Production‑ready modern Java
-🔥 Key Java 21 Features
+3. New String Methods
 
-✅ Virtual Threads (final)
-✅ Pattern Matching for switch (final)
-✅ Record Patterns (final)
-✅ Sequenced Collections
-✅ String Templates (preview)
+String text = "   Java   ";
+System.out.println(text.isBlank());   // false
+System.out.println(text.strip());     // "Java"   Removes leading and trailing whitespace
+System.out.println("Hi ".repeat(3));  // "Hi Hi Hi "
 
+4. Switch Expression (Multiple case labels + pattern matching)
 
+String day = "MONDAY";
 
-Must‑Know (Daily Development)
-
-Records
-Switch expressions
-Pattern matching (instanceof, switch)
-Text blocks
-var
-HTTP Client
+int hours = switch (day) {
+    case "MONDAY", "FRIDAY" -> 8;
+    case "TUESDAY" -> 7;
+    default -> 6;
+};
 
 
- High‑Impact (Architecture / Scalability)
+Pattern matching in switch (Java 21)
 
-Virtual Threads
-Sealed Classes
-
-
-
-//
-
-Switch + Pattern Matching (Java 17+ / 21)
-
-
-Object obj = "Java";
-
+Object obj = "Hello";
 String result = switch (obj) {
-    case Integer i -> "Integer: " + i;
-    case String s -> "String: " + s;
+    case String s -> "String length: " + s.length();
+    case Integer i -> "Integer value: " + i;
     case null -> "Null value";
     default -> "Unknown type";
 };
 
+5. Text Blocks (Multi‑Line Strings)
 
-Multiple Case Labels (Very common in real code)
+String json = """
+    {
+      "id": 1,
+      "name": "Java"
+    }
+    """;
+
+System.out.println(json);
 
 
-int score = 85;
+6. Records
 
-String grade = switch (score / 10) {
-    case 9, 10 -> "A";
-    case 8 -> "B";
-    case 7 -> "C";
-    case 6 -> "D";
-    default -> "Fail";
-};
+public record User(String id, String name) {}
 
-// strip()  Removes leading and trailing whitespace
-String text = "   Hello Java   ";
-String result = text.strip();
-System.out.println(result);
+7. Pattern Matching for instanceof
+
+Object obj = "Java";
+if (obj instanceof String s) {
+    System.out.println(s.toUpperCase());
+}
+
+8.  
+public sealed interface Payment permits CashPayment, CardPayment { }
+
+
+public final class CashPayment implements Payment { }
+public final class CardPayment implements Payment { }
+
+9. Virtual Threads (Java 21)
+
+try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+    executor.submit(() -> {
+        System.out.println("Running in virtual thread");
+        Thread.sleep(1000);
+    });
+}
+
+
+10. Sequenced Collections (Java 21)
+
+
+ist<String> list = List.of("A", "B", "C");
+
+System.out.println(list.getFirst()); // A
+System.out.println(list.getLast());  // C
+
+
+
+SequencedCollection<String> sc = new ArrayDeque<>();
+sc.addFirst("First");
+sc.addLast("Last");
+
+System.out.println(sc.getFirst()); // First
+System.out.println(sc.getLast());  // Last
+
 
 
