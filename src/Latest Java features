@@ -18,12 +18,9 @@ repeat()
 Java 14
 
 Switch Expressions (final)
-Helpful NullPointerExceptions
-Records (preview)
-
+Records
 
 // Java 15 Text Blocks (multi‑line strings)
-
 
 String json = """
 {
@@ -78,6 +75,8 @@ Structured Concurrency
 Sealed Classes
 
 
+
+//
 
 Switch + Pattern Matching (Java 17+ / 21)
 
