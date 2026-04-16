@@ -50,7 +50,6 @@ Java 21 (LTS) ⭐ MOST IMPORTANT
 🔥 Key Java 21 Features
 
 ✅ Virtual Threads (final)
-✅ Structured Concurrency (final)
 ✅ Pattern Matching for switch (final)
 ✅ Record Patterns (final)
 ✅ Sequenced Collections
