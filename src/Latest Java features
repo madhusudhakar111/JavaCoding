@@ -105,9 +105,9 @@ String grade = switch (score / 10) {
     default -> "Fail";
 };
 
-
+// strip()  Removes leading and trailing whitespace
 String text = "   Hello Java   ";
 String result = text.strip();
 System.out.println(result);
 
-Removes leading and trailing whitespace
+
