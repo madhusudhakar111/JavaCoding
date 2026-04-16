@@ -1,1 +1,107 @@
+Java 10: 
+
+var (Local Variable Type Inference)
+
+var list = new ArrayList<String>();
+
+Java 11 (LTS)
+
+Standard HTTP Client
+New String methods
+
+isBlank()
+strip()
+repeat()
+
+
+
+Java 14
+
+Switch Expressions (final)
+Helpful NullPointerExceptions
+Records (preview)
+
+
+Java 15
+
+
+String json = """
+{
+  "id": 1,
+  "name": "Java"
+}
+""";
+
+
+Java 16
+
+✅ Records (final)
+✅ Pattern matching for instanceof
+
+if (obj instanceof String s) {
+    System.out.println(s.length());
+}
+
+Java 17 (LTS)
+
+✅ Sealed Classes (final)
+✅ Enhanced Pattern Matching
+
+
+Java 21 (LTS) ⭐ MOST IMPORTANT
+✅ Production‑ready modern Java
+🔥 Key Java 21 Features
+
+✅ Virtual Threads (final)
+✅ Structured Concurrency (final)
+✅ Pattern Matching for switch (final)
+✅ Record Patterns (final)
+✅ Sequenced Collections
+✅ String Templates (preview)
+
+
+
+Must‑Know (Daily Development)
+
+Records
+Switch expressions
+Pattern matching (instanceof, switch)
+Text blocks
+var
+HTTP Client
+
+
+ High‑Impact (Architecture / Scalability)
+
+Virtual Threads
+Structured Concurrency
+Sealed Classes
+
+
+
+Switch + Pattern Matching (Java 17+ / 21)
+
+
+Object obj = "Java";
+
+String result = switch (obj) {
+    case Integer i -> "Integer: " + i;
+    case String s -> "String: " + s;
+    case null -> "Null value";
+    default -> "Unknown type";
+};
+
+
+Multiple Case Labels (Very common in real code)
+
+
+int score = 85;
+
+String grade = switch (score / 10) {
+    case 9, 10 -> "A";
+    case 8 -> "B";
+    case 7 -> "C";
+    case 6 -> "D";
+    default -> "Fail";
+};
 
