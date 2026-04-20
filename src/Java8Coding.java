@@ -20,6 +20,14 @@ public class Java8Coding {
 		if(result2.isPresent()) {
 			//System.out.print(result2.get());
 		}
+			List<Employee> lst = List.of(new Employee(1, "ram", 110000),
+	                            new Employee(2, "sam", 20000),
+	                            new Employee(3, "kam", 30000));
+	
+	        List<Employee> lst1 =  lst.stream().sorted(Comparator.comparing(employee -> employee.salary())).toList();
+	
+	        System.out.println( lst1);  // [Employee[id=2, name=sam, salary=20000], Employee[id=3, name=kam, salary=30000], Employee[id=1, name=ram, salary=110000]]
+
 		
 
 		//3 Print Duplicate Characters in a String  Input: "programming"  Output: r g m
