@@ -25,7 +25,15 @@
         );
 		
 		
-		employees.stream().
+		  Map<String, List<Employee>> map = lst.stream().collect(Collectors.groupingBy(Employee::dept));
+
+ map.forEach((k,v) -> {
+            //System.out.println( k +" ="+v.size());  // 1
+            Employee e = v.stream().sorted(Comparator.comparing(Employee::salary)).toList().getFirst();
+            System.out.println( k +" ="+e.toString());  // 2
+
+        });
+
 		
     }
  
